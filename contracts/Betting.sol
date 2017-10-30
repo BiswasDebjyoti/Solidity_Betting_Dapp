@@ -10,9 +10,13 @@ contract Betting {
     	params[1]=param2;
     	params[2]=param3;
     }
-    function incre()
+    function incre(uint8 guis)
     {
     	//call guess with a guess num
+    	bool ans=guess(guis);
+    	if(ans==true)
+    		{winnerCount++;}
+    	else {loserCount++;}
     }
 	
 	function guess(uint8 guess) returns(bool)
