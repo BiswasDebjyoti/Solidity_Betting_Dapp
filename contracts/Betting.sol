@@ -2,7 +2,8 @@ pragma solidity ^0.4.4;
 
 contract Betting {
   uint[3] params=[0,0,0];
-  uint8 winnerCount=0;uint8 loserCount=0;
+  uint8  winnerCount=0;
+  uint8  loserCount=0;
   function Betting(uint8 param1,uint8 param2,uint8 param3) {
     // constructor
     
@@ -17,6 +18,15 @@ contract Betting {
     	if(ans==true)
     		{winnerCount++;}
     	else {loserCount++;}
+    }
+    function returnLoser() returns(uint)
+    {
+    	return loserCount;
+    }
+
+    function returnWinner() returns(uint)
+    {
+    	return winnerCount;
     }
 	
 	function guess(uint8 guess) returns(bool)

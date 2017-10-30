@@ -1,5 +1,5 @@
 var Betting = artifacts.require("./Betting.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Betting);
+  deployer.deploy(Betting,2,3,6);
 };
