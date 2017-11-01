@@ -4,6 +4,9 @@ contract Betting {
   uint[3] params=[0,0,0];
   uint8  winnerCount=0;
   uint8  loserCount=0;
+  string lastWinnerName="";
+
+
   function Betting(uint8 param1,uint8 param2,uint8 param3) {
     // constructor
     
@@ -29,7 +32,7 @@ contract Betting {
     	return winnerCount;
     }
 	
-	function guess(uint8 guess) returns(bool)
+	function guess(uint8 guess) returns(bool,string)
     {	uint i=0;
     //for loop to check if guess is there
     	for(i=0;i<3;i++)
