@@ -23,16 +23,22 @@ contract Betting {
     {
     	return winnerCount;
     }
+    function getLastWinner() returns(string)
+    {
+        return lastWinnerName;
+    }
+
+
 	
 	function guess(uint8 guess, string name)
     {	uint i=0;
     //for loop to check if guess is there
     	for(i=0;i<3;i++)
     	{
-    		if(params[i]==guesss)
+    		if(params[i]==guess)
     		{
     			//return true;
-                winneCount++;
+                winnerCount++;
                 lastWinnerName=name;
     			break;
     		}
