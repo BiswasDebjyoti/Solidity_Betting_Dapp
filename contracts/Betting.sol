@@ -4,7 +4,9 @@ contract Betting {
   uint[3] params=[0,0,0];
   uint8  winnerCount=0;
   uint8  loserCount=0;
-  string lastWinnerName="";
+  string lastWinnerName="***";
+  uint lastWinnerAt;
+
 
 
   function Betting(uint8 param1,uint8 param2,uint8 param3) {
@@ -42,7 +44,8 @@ contract Betting {
     			//return true;
                 winnerCount++;
                 lastWinnerName=name;
-    			break;
+    			lastWinnerAt=now;
+                break;
     		}
     	}
         if(i==3)
@@ -51,5 +54,10 @@ contract Betting {
         }
   	 
     	
+    }
+    //getter time
+    function LastWinnerMinute() returns(uint)
+    {
+        return (now - lastWinnerAt*1 minutes);
     }
 }

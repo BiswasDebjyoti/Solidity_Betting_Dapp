@@ -11,29 +11,29 @@ contract('Betting', function(accounts) {
     }).then(function (result) {
       
       
-      betting.guess(3,"simon");
+      betting.guess(1,"simon");
       
-      betting.guess(3,"simon");
+      betting.guess(1,"simon");
 
-      betting.guess(5,"simon");
-      betting.guess(9,"simon");
+      betting.guess(1,"simon");
+      //betting.guess(9,"simon");
       //betting.subtractFromNumber(5);
       return betting.returnWinner.call();
     }).then(function (result){
     	
-    	console.log(" Winner:"+result.valueOf());
-    	betting.guess(9,"simon");
+    	console.log("Winner:"+result.valueOf());
+    	//betting.guess(9,"simon");
       betting.guess(6,"Raj");
-    	return betting.returnLoser.call();
+    	return betting.LastWinnerMinute.call();
 
     }).then(function (result){
     	
-    	console.log(" \nLoser:"+result.valueOf());
+    	console.log("\nLast winner time:"+result.valueOf());
     	//return betting.returnLoser.call();
       return betting.getLastWinner.call();
     }).then(function(result)
     {
-      console.log(result.valueOf());
+      console.log("Last Winner: "+result.valueOf());
     })
 
   });
