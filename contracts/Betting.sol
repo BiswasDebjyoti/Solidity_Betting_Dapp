@@ -14,14 +14,6 @@ contract Betting {
     	params[1]=param2;
     	params[2]=param3;
     }
-    function incre(uint8 guis)
-    {
-    	//call guess with a guess num
-    	bool ans=guess(guis);
-    	if(ans==true)
-    		{winnerCount++;}
-    	else {loserCount++;}
-    }
     function returnLoser() returns(uint)
     {
     	return loserCount;
@@ -32,18 +24,24 @@ contract Betting {
     	return winnerCount;
     }
 	
-	function guess(uint8 guess) returns(bool,string)
+	function guess(uint8 guess, string name)
     {	uint i=0;
     //for loop to check if guess is there
     	for(i=0;i<3;i++)
     	{
-    		if(params[i]==guess)
+    		if(params[i]==guesss)
     		{
-    			return true;
+    			//return true;
+                winneCount++;
+                lastWinnerName=name;
     			break;
     		}
     	}
+        if(i==3)
+        {
+        loserCount++;
+        }
+  	 
     	
-    	return false;
     }
 }
