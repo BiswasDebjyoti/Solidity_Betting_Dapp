@@ -14,21 +14,23 @@ contract Betting {
     	params[1]=param2;
     	params[2]=param3;
     }
+    // returns loser count
     function returnLoser() returns(uint)
     {
     	return loserCount;
     }
-
+    //returns loser count
     function returnWinner() returns(uint)
     {
     	return winnerCount;
     }
+    //returns last winners name
     function getLastWinner() returns(string)
     {
         return lastWinnerName;
     }
 
-
+    // guess function
 	
 	function guess(uint8 guess, string name)
     {	uint i=0;
