@@ -30,23 +30,9 @@ contract Betting {
     	params[1]=param2;
     	params[2]=param3;
     }
-    // returns loser count
-    function returnLoser() returns(uint)
-    {
-    	return loserCount;
-    }
-    //returns loser count
-    function returnWinner() returns(uint)
-    {
-    	return winnerCount;
-    }
-    //returns last winners name
-    function getLastWinner() returns(string)
-    {
-        return lastWinnerName;
-    }
+    
 
-    // guess function
+    // guess function --main function
 	
 	function guess()
     {	uint i=0;
@@ -71,6 +57,21 @@ contract Betting {
         }
   	 
     	
+    }
+    // getter loser count
+    function returnLoser() returns(uint)
+    {
+        return loserCount;
+    }
+    //getter loser count
+    function returnWinner() returns(uint)
+    {
+        return winnerCount;
+    }
+    //getter last winners name
+    function getLastWinner() returns(string)
+    {
+        return lastWinnerName;
     }
     //getter time
     function LastWinnerMinute() returns(uint)
