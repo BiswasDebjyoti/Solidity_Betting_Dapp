@@ -7,13 +7,14 @@ contract Betting {
   uint lastWinnerAt;
   string lastWinnerName="***";
   uint guessedAt = now;
-  //uint8 guess;
+  //uint8  guess;
   address winner_Address;
   
 //Winner Struct
   struct person
   {
-    
+    uint guess_;
+    string name;
   }
 
   person person1;
@@ -47,8 +48,9 @@ contract Betting {
 
     // guess function
 	
-	function guess(uint8 guess, string name)
+	function guess()
     {	uint i=0;
+      uint guess=person1.guess_;
     //for loop to check if guess is there
         if(guess>10) revert();
     	for(i=0;i<3;i++)
@@ -57,7 +59,7 @@ contract Betting {
     		{
     			//return true;
                 winnerCount++;
-                lastWinnerName=name;
+                lastWinnerName=person1.name;
     			lastWinnerAt=now;
                 winner_Address=msg.sender;
                 break;
@@ -79,5 +81,15 @@ contract Betting {
     function winnerAddress() returns(address)
     {
         return winner_Address;
+    }
+    // guess setter
+    function guessSet(uint guessSet)
+    {
+      person1.guess_=guessSet;
+    }
+    //Name Setter
+    function nameSet(string nameSet)
+    {
+        person1.name =nameSet;
     }
 }
