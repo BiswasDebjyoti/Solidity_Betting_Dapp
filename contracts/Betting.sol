@@ -6,15 +6,17 @@ contract Betting {
   uint8  loserCount=0;
   uint lastWinnerAt;
   string lastWinnerName="***";
-  uint guessedAt = now;
+ 
   //uint8  guess;
-  address winner_Address;
+  
   
 //Winner Struct
   struct person
   {
     uint guess_;
+    address winner_Address;
     string name;
+    uint guessedAt;
   }
 
   person person1;
@@ -37,6 +39,7 @@ contract Betting {
 	function guess()
     {	uint i=0;
       uint guess=person1.guess_;
+      person1.guessedAt=now;
     //for loop to check if guess is there
         if(guess>10) revert();
     	for(i=0;i<3;i++)
@@ -47,7 +50,7 @@ contract Betting {
                 winnerCount++;
                 lastWinnerName=person1.name;
     			lastWinnerAt=now;
-                winner_Address=msg.sender;
+                person1.winner_Address=msg.sender;
                 break;
     		}
     	}
@@ -58,7 +61,25 @@ contract Betting {
   	 
     	
     }
-    // getter loser count
+    
+   
+    
+    // guess setter
+    function guessSet(uint guessSet)
+    {
+      person1.guess_=guessSet;
+    }
+    //Name Setter
+    function nameSet(string nameSet)
+    {
+        person1.name =nameSet;
+    }
+    
+
+}
+/*
+
+// getter loser count
     function returnLoser() returns(uint)
     {
         return loserCount;
@@ -73,24 +94,4 @@ contract Betting {
     {
         return lastWinnerName;
     }
-    //getter time
-    function LastWinnerMinute() returns(uint)
-    {
-        return (now - lastWinnerAt*1 minutes);
-    }
-    //WInner Address
-    function winnerAddress() returns(address)
-    {
-        return winner_Address;
-    }
-    // guess setter
-    function guessSet(uint guessSet)
-    {
-      person1.guess_=guessSet;
-    }
-    //Name Setter
-    function nameSet(string nameSet)
-    {
-        person1.name =nameSet;
-    }
-}
+*/
