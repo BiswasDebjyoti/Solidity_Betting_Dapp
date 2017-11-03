@@ -9,9 +9,11 @@ contract Betting {
   uint guessedAt = now;
   //uint8 guess;
   address winner_Address;
-
-  struct person{
-
+  
+//Winner Struct
+  struct person
+  {
+    
   }
 
   person person1;
