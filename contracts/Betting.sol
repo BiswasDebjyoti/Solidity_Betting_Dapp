@@ -4,13 +4,24 @@ contract Betting {
   uint[3] params=[0,0,0];
   uint8  winnerCount=0;
   uint8  loserCount=0;
-  string lastWinnerName="***";
   uint lastWinnerAt;
+  string lastWinnerName="***";
+  uint guessedAt = now;
+  //uint8 guess;
+  address winner_Address;
+
+  struct person{
+
+  }
+
+  person person1;
+  
 
 
 
-  function Betting(uint8 param1,uint8 param2,uint8 param3) {
     // constructor
+  function Betting(uint8 param1,uint8 param2,uint8 param3) {
+    
     
     	params[0]=param1;
     	params[1]=param2;
@@ -37,6 +48,7 @@ contract Betting {
 	function guess(uint8 guess, string name)
     {	uint i=0;
     //for loop to check if guess is there
+        if(guess>10) revert();
     	for(i=0;i<3;i++)
     	{
     		if(params[i]==guess)
@@ -45,6 +57,7 @@ contract Betting {
                 winnerCount++;
                 lastWinnerName=name;
     			lastWinnerAt=now;
+                winner_Address=msg.sender;
                 break;
     		}
     	}
@@ -59,5 +72,10 @@ contract Betting {
     function LastWinnerMinute() returns(uint)
     {
         return (now - lastWinnerAt*1 minutes);
+    }
+    //WInner Address
+    function winnerAddress() returns(address)
+    {
+        return winner_Address;
     }
 }
